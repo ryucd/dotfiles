@@ -147,3 +147,6 @@ function tmux_automatically_attach_session()
 tmux_automatically_attach_session
 
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
