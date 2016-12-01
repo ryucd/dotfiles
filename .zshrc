@@ -147,6 +147,8 @@ function tmux_automatically_attach_session()
 tmux_automatically_attach_session
 
 
+# vi opens in vim
+alias vi=vim
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
