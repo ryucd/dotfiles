@@ -17,6 +17,41 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tomtom/tcomment_vim'
 
+" javascript completion
+NeoBundle 'mattn/jscomplete-vim'
+:setl omnifunc=jscomplete#CompleteJS
+
+" Node.js completion
+NeoBundle 'myhere/vim-nodejs-complete'
+:setl omnifunc=jscomplete#CompleteJS
+if !exists('g:neocomplcache_omni_functions')
+	let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+let g:node_usejscomplete = 1
+
+" Auto indent and syntax color
+NeoBundle 'othree/yajs.vim' 
+
+" Auto close clauses
+NeoBundle 'Townk/vim-autoclose'
+
+" syntax check
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_check_on_open=0 "ファイルを開いたときはチェックしない
+let g:syntastic_check_on_save=1 "保存時にはチェック
+let g:syntastic_check_on_wq = 0 " wqではチェックしない
+let g:syntastic_auto_loc_list=1 "エラーがあったら自動でロケーションリストを開く
+let g:syntastic_loc_list_height=6 "エラー表示ウィンドウの高さ
+set statusline+=%#warningmsg# "エラーメッセージの書式
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_javascript_checkers = ['eslint'] "ESLintを使う
+let g:syntastic_mode_map = {
+      \ 'mode': 'active',
+      \ 'active_filetypes': ['javascript'],
+      \ 'passive_filetypes': []
+      \ }
 
 NeoBundle 'Shougo/neocomplete.vim'
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
